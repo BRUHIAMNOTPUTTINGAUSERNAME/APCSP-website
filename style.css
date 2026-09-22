@@ -1,19 +1,102 @@
-html{
-    scroll-behavior: smooth
-}
-.myNav{
-  background-color: transparent;
-}
-.parallax {
-  /* The image used */
-  background-image: url("https://codehs.com/uploads/0a971c60a25ac59139fb6465ef35c1cd");
+/* --- Global Styles --- */
+html { 
+  scroll-behavior: smooth; 
+} 
 
-  /* Set a specific height */
-  min-height: 500px;
+body { 
+  background-color: gray; 
+} 
 
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+/* --- Navbar Design --- */
+.myNav { 
+  background-color: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease-in-out;
+  color: white;
+} 
+
+/* --- Section Layouts --- */
+.grayDiv {
+  background-color: #41AB5D;
+  text-align: center;
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax { 
+  background-image: url('https://codehs.com/uploads/732068682d2059014e48c146893d9254'); 
+  height: 100vh; 
+  background-attachment: fixed; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+
+.parallax h1, 
+.parallax h2, 
+.parallax p { 
+  transition: opacity 0.2s ease-out; 
+  opacity: 1; 
+} 
+
+.text-hidden { 
+  opacity: 0 !important; 
+} 
+
+footer { 
+  background-color: gray; 
+}
+
+/* --- Glassmorphic Cards & Hover Effects --- */
+.custom-glass {
+  background-color: rgba(25, 25, 25, 0.75) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* Added transitions for smooth reveal animation mixing with hover effect */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, opacity 0.8s ease-out;
+}
+
+.panel-card-link:hover .custom-glass {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.4) !important;
+} /* <-- FIXED: Added the missing closing brace that was breaking subsequent styles */
+
+.text-shadow {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* --- Scroll-to-Reveal Animation --- */
+/* Initial hidden state of the cards */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: opacity, transform;
+}
+
+/* State triggered by JavaScript when scrolled into view */
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive Media Queries --- */
+/* Mobile-first: Screen sizes 768px wide OR WIDER */
+@media (min-width: 768px) {
+  body { background-color: lightblue; }
+}
+
+/* Desktop-first: Screen sizes 1024px wide OR SMALLER */
+@media (max-width: 1024px) {
+  .sidebar { display: none; }
+}
+
+/* Modern Range Syntax: Screen sizes between 400px and 800px inclusively */
+@media (400px <= width <= 800px) {
+  .container { padding: 20px; }
 }
